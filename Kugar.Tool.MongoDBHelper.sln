@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29609.76
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kugar.Tool.MongoDBHelper", "Kugar.Tool.MongoDBHelper\Kugar.Tool.MongoDBHelper.csproj", "{0FCA2627-7B78-4A31-9DB2-4F63EC084778}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kugar.Tool.MongoDBHelper.NetCore", "Kugar.Tool.MongoDBHelper.NetCore\Kugar.Tool.MongoDBHelper.NetCore.csproj", "{E3D423C0-CFB8-4AA0-8F52-4A10D48989E2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{1DFF8EC9-0798-47AA-91A9-269782EE5A6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kugar.Tool.MongoDBHelper.Core2.Demo", "Demo\Kugar.Tool.MongoDBHelper.Core2.Demo\Kugar.Tool.MongoDBHelper.Core2.Demo.csproj", "{B1A5D9E1-E2C5-4239-97E3-6CF42B16BDD5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{810A4CF2-7650-494C-B8F0-7B01171B7E74}"
+	ProjectSection(SolutionItems) = preProject
+		readme.md = readme.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0FCA2627-7B78-4A31-9DB2-4F63EC084778}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FCA2627-7B78-4A31-9DB2-4F63EC084778}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FCA2627-7B78-4A31-9DB2-4F63EC084778}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FCA2627-7B78-4A31-9DB2-4F63EC084778}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3D423C0-CFB8-4AA0-8F52-4A10D48989E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3D423C0-CFB8-4AA0-8F52-4A10D48989E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3D423C0-CFB8-4AA0-8F52-4A10D48989E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3D423C0-CFB8-4AA0-8F52-4A10D48989E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1A5D9E1-E2C5-4239-97E3-6CF42B16BDD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1A5D9E1-E2C5-4239-97E3-6CF42B16BDD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1A5D9E1-E2C5-4239-97E3-6CF42B16BDD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1A5D9E1-E2C5-4239-97E3-6CF42B16BDD5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B1A5D9E1-E2C5-4239-97E3-6CF42B16BDD5} = {1DFF8EC9-0798-47AA-91A9-269782EE5A6D}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {02BEF7A8-008D-46D4-8EAF-959191A26EDE}
+	EndGlobalSection
+EndGlobal
