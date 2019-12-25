@@ -151,9 +151,9 @@ namespace Kugar.Tool.MongoDBHelper
         Task<TNew> FindOneAsAsync<TNew>(IMongoQuery query, IMongoSortBy order = null, IMongoFields fields = null);
 
 
-        Task<ResultReturn> InsertAsync(T data);
+        Task<ResultReturn> InsertAsync(T data, bool isValidate = false);
 
-        Task<ResultReturn> InsertBatchAsync(IEnumerable<T> data, bool isOrdered = false);
+        Task<ResultReturn> InsertBatchAsync(IEnumerable<T> data, bool isOrdered = false, bool isValidate = false);
 
         Task<T[]> FindAllAsAsync(IMongoSortBy sortBy = null, IMongoFields fields = null, Collation collation = null);
 

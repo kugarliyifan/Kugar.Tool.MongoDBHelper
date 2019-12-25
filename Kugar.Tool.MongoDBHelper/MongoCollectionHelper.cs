@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -895,7 +896,7 @@ namespace Kugar.Tool.MongoDBHelper
                 newDocument, new UpdateOptions()
                 {
                     IsUpsert = isupset,
-                });
+                }).ConfigureAwait(false);
 
 
             return toResultReturn(ret);
@@ -906,7 +907,7 @@ namespace Kugar.Tool.MongoDBHelper
         {
             try
             {
-                var ret = await _collection.BulkWriteAsync(opts, new BulkWriteOptions() { IsOrdered = isordered });
+                var ret = await _collection.BulkWriteAsync(opts, new BulkWriteOptions() { IsOrdered = isordered }).ConfigureAwait(false);
                 return new SuccessResultReturn<BulkWriteResult<BsonDocument>>(ret);
             }
             catch (Exception e)
@@ -925,7 +926,7 @@ namespace Kugar.Tool.MongoDBHelper
         {
             try
             {
-                var c = await _collection.CountAsync(query.ToFilterDefinition());
+                var c = await _collection.CountAsync(query.ToFilterDefinition()).ConfigureAwait(false);
 
                 return (int)c;
             }
@@ -1035,7 +1036,7 @@ namespace Kugar.Tool.MongoDBHelper
                     query,
                     order,
                     fields
-                    , 0, 1, collation: collation);
+                    , 0, 1, collation: collation).ConfigureAwait(false);
 
                 return data.FirstOrDefault();
             }
@@ -1082,12 +1083,12 @@ namespace Kugar.Tool.MongoDBHelper
                 if (flags == UpdateFlags.Multi)
                 {
                     result = await _collection.UpdateManyAsync(query.ToBsonDocument(), updater.ToBsonDocument(),
-                        new UpdateOptions() { IsUpsert = false });
+                        new UpdateOptions() { IsUpsert = false }).ConfigureAwait(false);
                 }
                 else
                 {
                     result = await _collection.UpdateOneAsync(query.ToBsonDocument(), updater.ToBsonDocument(),
-                        new UpdateOptions() { IsUpsert = flags == UpdateFlags.Upsert });
+                        new UpdateOptions() { IsUpsert = flags == UpdateFlags.Upsert }).ConfigureAwait(false);
                 }
 
                 if (!result.IsAcknowledged || result.ModifiedCount > 0 || result.MatchedCount > 0)
@@ -1214,7 +1215,7 @@ namespace Kugar.Tool.MongoDBHelper
 
                 var opt = PipelineDefinition<BsonDocument, BsonDocument>.Create(pipeline);
 
-                var result = await _collection.AggregateAsync(opt, options);
+                var result = await _collection.AggregateAsync(opt, options).ConfigureAwait(false);
 
                 var data = result.ToArrayEx();
 
@@ -1231,7 +1232,7 @@ namespace Kugar.Tool.MongoDBHelper
         {
             options =options?? new AggregateOptions() {AllowDiskUse = true};
 
-            var countRet = await this.AggregateAsync(builder.Copy().Count("Count"), options);
+            var countRet = await this.AggregateAsync(builder.Copy().Count("Count"), options).ConfigureAwait(false);
 
             var count = countRet.ReturnData.FirstOrDefault()?.GetInt32("Count") ?? 0;
 
@@ -1240,7 +1241,7 @@ namespace Kugar.Tool.MongoDBHelper
                 return VM_PagedList<BsonDocument>.Empty(pageIndex, pageSize);
             }
 
-            var data = await this.AggregateAsync(builder.Skip(pageSize * (pageIndex - 1)).Limit(pageSize), options);
+            var data = await this.AggregateAsync(builder.Skip(pageSize * (pageIndex - 1)).Limit(pageSize), options).ConfigureAwait(false);
 
             return new VM_PagedList<BsonDocument>(data.ReturnData.ToArrayEx(), pageIndex, pageSize, count);
         }
@@ -1251,7 +1252,7 @@ namespace Kugar.Tool.MongoDBHelper
 
             try
             {
-                await _collection.InsertOneAsync(document);
+                await _collection.InsertOneAsync(document).ConfigureAwait(false);
 
                 return SuccessResultReturn.Default;
             }
@@ -1265,7 +1266,7 @@ namespace Kugar.Tool.MongoDBHelper
         {
             try
             {
-                await _collection.InsertManyAsync(document, new InsertManyOptions() { IsOrdered = isOrdered });
+                await _collection.InsertManyAsync(document, new InsertManyOptions() { IsOrdered = isOrdered }).ConfigureAwait(false);
 
                 return SuccessResultReturn.Default;
 
@@ -1283,13 +1284,13 @@ namespace Kugar.Tool.MongoDBHelper
             {
                 if (flags == RemoveFlags.Single)
                 {
-                    var ret = await _collection.DeleteOneAsync(query.ToFilterDefinition(), new DeleteOptions());
+                    var ret = await _collection.DeleteOneAsync(query.ToFilterDefinition(), new DeleteOptions()).ConfigureAwait(false);
 
                     return new SuccessResultReturn(ret.DeletedCount);
                 }
                 else
                 {
-                    var ret = await _collection.DeleteManyAsync(query.ToFilterDefinition(), new DeleteOptions());
+                    var ret = await _collection.DeleteManyAsync(query.ToFilterDefinition(), new DeleteOptions()).ConfigureAwait(false);
 
                     return new SuccessResultReturn(ret.DeletedCount);
                 }
@@ -1308,7 +1309,7 @@ namespace Kugar.Tool.MongoDBHelper
 
         public async Task<ObjectId> FindIDAsync(IMongoQuery query, IMongoSortBy orderBy = null)
         {
-            var s = await FindOneAsync(query, orderBy, Fields.Include("_id"));
+            var s = await FindOneAsync(query, orderBy, Fields.Include("_id")).ConfigureAwait(false);
 
             if (s != null)
             {
@@ -1398,21 +1399,21 @@ namespace Kugar.Tool.MongoDBHelper
                     break;
             }
 
-            return await _collection.CreateIndexAsync(index, options ?? new CreateIndexOptions());
+            return await _collection.CreateIndexAsync(index, options ?? new CreateIndexOptions()).ConfigureAwait(false);
         }
 
         public async Task<string> CreateIndexAsync(IndexKeysBuilder keys, CreateIndexOptions options = null)
         {
             return await _collection.CreateIndexAsync(
                 new BsonDocumentIndexKeysDefinition<BsonDocument>(keys.ToBsonDocument()),
-                options ?? new CreateIndexOptions());
+                options ?? new CreateIndexOptions()).ConfigureAwait(false);
 
             //return await _collection.Indexes.CreateOneAsync(new BsonDocumentIndexKeysDefinition<BsonDocument>(keys.ToBsonDocument()), options ?? new CreateIndexOptions());
         }
 
         public async Task<string> CreateIndexAsync(IndexKeysDefinition<BsonDocument> index, CreateIndexOptions options)
         {
-            return await _collection.CreateIndexAsync(index, options ?? new CreateIndexOptions());
+            return await _collection.CreateIndexAsync(index, options ?? new CreateIndexOptions()).ConfigureAwait(false);
 
             //return await _collection.Indexes.CreateOneAsync(index, options);
         }
@@ -1430,7 +1431,7 @@ namespace Kugar.Tool.MongoDBHelper
                 new BsonDocumentFilterDefinition<BsonDocument>(Query.EQ("ModuleID", _collectionName).ToBsonDocumentEx()),
                 new BsonDocumentUpdateDefinition<BsonDocument>(MongoDB.Driver.Builders.Update.Inc("CurrentValue", 1).ToBsonDocumentEx()),
                 new FindOneAndUpdateOptions<BsonDocument, BsonDocument>(){IsUpsert = true,ReturnDocument= ReturnDocument.After}
-            );
+            ).ConfigureAwait(false);
 
             return ret.GetValue("CurrentValue").AsInt32;
         }
@@ -1808,7 +1809,7 @@ namespace Kugar.Tool.MongoDBHelper
 
         #region Insert
 
-        public ResultReturn Insert(T data)
+        public ResultReturn Insert(T data, bool isValidate = false)
         {
             var json = data.ToBsonDocument();
 
@@ -1817,7 +1818,7 @@ namespace Kugar.Tool.MongoDBHelper
             return InsertBatch(new[] { data });
         }
 
-        public async Task<ResultReturn> InsertAsync(T data)
+        public async Task<ResultReturn> InsertAsync(T data, bool isValidate = false)
         {
             var json = data.ToBsonDocument();
 
@@ -1826,13 +1827,33 @@ namespace Kugar.Tool.MongoDBHelper
         }
 
 
-        public ResultReturn InsertBatch(IEnumerable<T> data, bool isOrdered = false)
+        public ResultReturn InsertBatch(IEnumerable<T> data, bool isOrdered = false, bool isValidate = false)
         {
             return InsertBatch(data.Select(x => x.ToBsonDocument()), isOrdered);
         }
 
-        public async Task<ResultReturn> InsertBatchAsync(IEnumerable<T> data, bool isOrdered = false)
+        public async Task<ResultReturn> InsertBatchAsync(IEnumerable<T> data, bool isOrdered = false, bool isValidate = false)
         {
+            if (isValidate)
+            {
+                var errors=new List<ValidationResult>();
+
+                foreach (var item in data)
+                {
+                    if (Validator.TryValidateObject(item, new ValidationContext(item), errors))
+                    {
+                        break;
+                    }
+                }
+
+                if (errors.HasData())
+                {
+                    return new FailResultReturn(new AggregateException(errors.Select(x=>new ValidationException())));
+                }
+            }
+
+
+
             return await base.InsertBatchAsync(data.Select(x => x.ToBsonDocument()), isOrdered);
         }
         #endregion
@@ -1994,7 +2015,7 @@ namespace Kugar.Tool.MongoDBHelper
 
         public async Task<TNew[]> DistinctAsAsync<TNew>(string field, IMongoQuery query) where TNew : class
         {
-            return (await SourceCollection.DistinctAsync<TNew>(field, query.ToBsonDocumentEx())).ToArrayEx();
+            return (await SourceCollection.DistinctAsync<TNew>(field, query.ToBsonDocumentEx()).ConfigureAwait(false)).ToArrayEx();
         }
 
 

@@ -261,9 +261,9 @@ namespace Kugar.Tool.MongoDBHelper
         ResultReturn<TNew> FindAndModifyAs<TNew>(IMongoQuery query, IMongoUpdate update, IMongoSortBy sortBy = null, IMongoFields fields = null,
             bool returnNew = true, bool upsert = false);
 
-        ResultReturn Insert(T data);
+        ResultReturn Insert(T data,bool isValidate=false);
 
-        ResultReturn InsertBatch(IEnumerable<T> data, bool isOrdered = false);
+        ResultReturn InsertBatch(IEnumerable<T> data, bool isOrdered = false, bool isValidate = false);
 
         T[] FindAllAs(IMongoSortBy sortBy = null, IMongoFields fields = null, Collation collation = null);
 
