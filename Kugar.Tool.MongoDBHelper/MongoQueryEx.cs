@@ -18,13 +18,34 @@ namespace Kugar.Tool.MongoDBHelper
             if (isIgoneCause)
             {
                 //var regex = BsonRegularExpression.Create(new Regex(string.Format("^*{0}*&", keyword), RegexOptions.IgnoreCase));
-
+             
                 return Query.Matches(propertyName, string.Format("/{0}/i", keyword));
             }
             else
             {
                 return Query.Matches(propertyName, string.Format("/{0}/", keyword));
             }
+        }
+
+
+        /// <summary>
+        /// 用于聚合时正则表达式匹配使用
+        /// </summary>
+        /// <param name="propertyName"></param>
+        /// <param name="regex"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        public static IMongoQuery RegexMatch(string propertyName, string regex, string options="i")
+        {
+            return Query.Create(new BsonDocument()
+            {
+                ["$regexMatch"] = new BsonDocument()
+                {
+                    ["input"] = propertyName[0] == '$' ? propertyName : $"${propertyName}",
+                    ["regex"] = new BsonRegularExpression(regex),
+                    ["options"] = options
+                }
+            });
         }
 
         public static IMongoQuery IsEqual(string propertyName, string value, bool isIgoneCause = true)

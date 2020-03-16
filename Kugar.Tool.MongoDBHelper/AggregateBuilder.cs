@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Kugar.Core.ExtMethod;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using Newtonsoft.Json.Linq;
 
 namespace Kugar.Tool.MongoDBHelper
 {
@@ -78,7 +79,7 @@ namespace Kugar.Tool.MongoDBHelper
         /// 添加一个查询块
         /// </summary>
         /// <param name="query"></param>
-        /// <param name="isExpr">是否为表达式,在使用lookup的pipline的时候,设置为true,并且会把eq变成 $eq:[x,y] 的方式</param>
+        /// <param name="isExpr">是否为表达式,在使用lookup的pipeline的时候,设置为true,并且会把eq变成 $eq:[x,y] 的方式</param>
         /// <returns></returns>
         public AggregateBuilder Match(BsonDocument query, bool isExpr = false)
         {
@@ -86,9 +87,82 @@ namespace Kugar.Tool.MongoDBHelper
 
             if (query != null)
             {
+                if (isExpr)
+                {
+                    var doc = new BsonArray();
+
+                    foreach (var item in query)
+                    {
+                        if (item.Name.StartsWith("$"))
+                        {
+                            doc.Add(new BsonDocument()
+                            {
+                                [item.Name] = item.Value
+                            });
+                        }
+                        else if (!item.Name.StartsWith('$'))
+                        {
+                            if (item.Value is BsonDocument b)
+                            {
+                                
+                                foreach (var pair in b)
+                                {
+                                    doc.Add(new BsonDocument()
+                                    {
+                                        [pair.Name] = new BsonArray()
+                                        {
+                                            "$" + item.Name,
+                                            pair.Value
+                                        }
+                                    });
+                                }
+                            }
+                            else
+                            {
+                                doc.Add(encodeMatch(item));
+                            }
+                        }
+                    }
+
+                    q = new BsonDocument()
+                    {
+                        ["$match"] = new BsonDocument()
+                        {
+                            ["$expr"] = new BsonDocument()
+                            {
+                                ["$and"] = doc
+                            }
+                        }
+                    };
 
 
+                }
+                else
+                {
+                    q = new BsonDocument()
+                    {
+                        ["$match"] = query
+                    };
+                }
 
+                _pipline.Add(q);
+            }
+
+            return this;
+        }
+
+        /// <summary>
+        /// 添加一个查询块
+        /// </summary>
+        /// <param name="query"></param>
+        /// <param name="isExpr">是否为表达式,在使用lookup的pipeline的时候,设置为true,并且会把eq变成 $eq:[x,y] 的方式</param>
+        /// <returns></returns>
+        public AggregateBuilder MatchOld(BsonDocument query, bool isExpr = false)
+        {
+            BsonDocument q = null;
+
+            if (query != null)
+            {
                 if (isExpr)
                 {
                     var doc = new BsonArray();
@@ -139,7 +213,6 @@ namespace Kugar.Tool.MongoDBHelper
                         {
                             ["$expr"] = new BsonDocument()
                             {
-
                                 ["$and"] = doc
                             }
                         }
@@ -159,6 +232,128 @@ namespace Kugar.Tool.MongoDBHelper
             }
 
             return this;
+        }
+
+        private BsonValue encodeMatch(BsonDocument input)
+        {
+            var doc = new BsonDocument();
+
+            foreach (var item in input.AsBsonDocument)
+            {
+                if (item.Name[0] == '$')  //
+                {
+                    if (item.Name.CompareTo("$and", true) || item.Name.CompareTo("$or", true))
+                    {
+                        doc.Add(new BsonDocument()
+                        {
+                            [item.Name] = encodeMatch(item.Value.AsBsonArray)
+                        });
+                    }
+                    else
+                    {
+                        doc.Add(new BsonDocument()
+                        {
+                            [item.Name] = item.Value
+                        });
+                    }
+                }
+                else
+                {
+                    if (item.Value is BsonDocument b)
+                    {
+                        if (b.Contains("$regex"))  //如果是regex转换
+                        {
+                            doc.Add(new BsonDocument()
+                            {
+                                ["$regexMatch"] = new BsonDocument()
+                                {
+                                    ["input"] = $"${item.Name}",
+                                    ["regex"] = b["$regex"],
+                                    ["options"] = b["$options"]
+                                }
+                            });
+                        }
+                        else
+                        {
+                            foreach (var pair in b)
+                            {
+                                doc.Add(new BsonDocument()
+                                {
+                                    [pair.Name] = new BsonArray()
+                                    {
+                                        "$" + item.Name,
+                                        pair.Value
+                                    }
+                                });
+                            }
+                        }
+                    }
+                    else
+                    {
+                        doc.Add(new BsonDocument()
+                        {
+                            ["$eq"] = new BsonArray()
+                            {
+                                "$" +item.Name, item.Value
+                            }
+                        });
+                    }
+                }
+
+            }
+
+            return doc;
+
+        }
+
+        private BsonValue encodeMatch(BsonElement input)
+        {
+            if (input.Value is BsonDocument b)
+            {
+                if (b.Contains("$regex"))  //如果是regex转换
+                {
+                    return new BsonDocument()
+                    {
+                        ["$regexMatch"] = new BsonDocument()
+                        {
+                            ["input"] = $"${input.Name}",
+                            ["regex"] = b["$regex"],
+                            ["options"] = b["$options"]
+                        }
+                    };
+                }
+
+            }
+
+            return new BsonDocument()
+            {
+                ["$eq"] = new BsonArray()
+                {
+                    "$" + input.Name, input.Value
+                }
+            };
+        }
+
+        private BsonArray encodeMatch(BsonArray input)
+        {
+            var array = new BsonArray();
+
+            foreach (var doc in input.AsBsonDocumentArray())
+            {
+                foreach (var pair in doc)
+                {
+                    if (pair.Name.CompareTo("$and", true) || pair.Name.CompareTo("$or", true))
+                    {
+                        array.Add(encodeMatch(pair.Value.AsBsonArray));
+                    }
+                    else
+                    {
+                        array.Add(encodeMatch(pair.Value as BsonDocument));
+                    }
+                }
+            }
+
+            return array;
         }
 
         public AggregateBuilder Project(BsonDocument project)
@@ -330,7 +525,7 @@ namespace Kugar.Tool.MongoDBHelper
             {
                 ["$replaceRoot"] = new BsonDocument()
                 {
-                    ["newRoot"] =newRootFieldName.StartsWith('$')?newRootFieldName:"$"+ newRootFieldName
+                    ["newRoot"] = newRootFieldName.StartsWith('$') ? newRootFieldName : "$" + newRootFieldName
                 }
             });
 

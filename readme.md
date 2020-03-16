@@ -16,7 +16,7 @@
 	```
 
 2. 构造自定义的Context类  
-```
+	```
 	public class DeviceMongoDBContext
 	{
 			private IMongoDBContext _context = null;
@@ -33,4 +33,4 @@
 
 	}
 
-```
+	```

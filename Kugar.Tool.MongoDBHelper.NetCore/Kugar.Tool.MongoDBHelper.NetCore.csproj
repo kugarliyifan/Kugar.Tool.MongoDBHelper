@@ -11,13 +11,13 @@
     <LangVersion>latest</LangVersion>
     <PackageReleaseNotes>1.增加了 AggregateBuilder.Match 在lookup的pipelines中转为expr的支持
 2.拆分 IMongoDBCollectionHelper 为 IMongoDBCollectionAsyncHelper 和 IMongoDBCollectionHelper
-3.增加 AggregateWithPagedAsync 函数,用于方便聚合后直接分页
+3.增加 AggregateWithPagedAsync 以及 AggregateAsWithPagedAsync 函数,用于方便聚合后直接分页
 </PackageReleaseNotes>
     <Description>对mongodb官方的驱动进行二次封装的类库</Description>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>..\..\bin\</OutputPath>
+    <OutputPath>bin\</OutputPath>
     <DocumentationFile>bin\Kugar.Tool.MongoDBHelper.NetCore.xml</DocumentationFile>
   </PropertyGroup>
 
