@@ -71,7 +71,6 @@ namespace Kugar.Tool.MongoDBHelper
         /// <returns></returns>
         public AggregateBuilder Match(IMongoQuery query, bool isExpr = false)
         {
-
             return Match(query.ToBsonDocumentEx(), isExpr);
         }
 
