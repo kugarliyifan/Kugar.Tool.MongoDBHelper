@@ -10,19 +10,104 @@ using JsonWriter = MongoDB.Bson.IO.JsonWriter;
 
 namespace Kugar.Tool.MongoDBHelper
 {
+    public class DateTimeNullableSerializer: SerializerBase<DateTime?>
+    {
+        public override DateTime? Deserialize(BsonDeserializationContext context, BsonDeserializationArgs args)
+        {
+            var reader = context.Reader;
+
+            if (reader.CurrentBsonType == BsonType.DateTime)
+            {
+                var value = new BsonDateTime(reader.ReadDateTime()).ToLocalTime();
+
+                return (DateTime?)value;
+            }
+            else if (reader.CurrentBsonType == BsonType.String)
+            {
+                var str = reader.ReadString();
+
+                return str.ToDateTimeNullable("yyyy-MM-dd HH:mm:ss");
+            }
+            else if (reader.CurrentBsonType== BsonType.Null)
+            {
+                reader.ReadNull();
+
+                return null;
+            }
+            else
+            {
+                throw new ArgumentException($"数据无法转换为时间");
+            }
+        }
+
+        public override void Serialize(BsonSerializationContext context, BsonSerializationArgs args, DateTime? value)
+        {
+            var writer = context.Writer;
+
+            var dt = (DateTime?)value;
+
+            if (dt == null)
+            {
+                writer.WriteNull();
+            }
+            else
+            {
+                writer.WriteDateTime(dt.Value);
+            }
+        }
+
+        //public override void Serialize(BsonSerializationContext context, BsonSerializationArgs args, decimal value)
+        //{
+        //    var writer = context.Writer;
+
+        //    var v = (decimal)value;
+
+        //    if (_isGreaterThan34)
+        //    {
+        //        writer.WriteDecimal128(v);
+        //    }
+        //    else
+        //    {
+
+        //        writer.WriteDecimal128((Decimal128)v);
+        //        writer.WriteStartDocument();
+
+        //        writer.WriteDouble("CalcValue", (double)v);
+        //        writer.WriteString("Value", v.ToString());
+
+        //        writer.WriteEndDocument();
+        //    }
+        //}
+    }
+
     public class DateTimeSerializerEx: DateTimeSerializer
     {
         public override DateTime Deserialize(BsonDeserializationContext context, BsonDeserializationArgs args)
         {
-            var dt = (DateTime)base.Deserialize(context, args);
-
-            if (dt.Kind == DateTimeKind.Utc)
+            var reader = context.Reader;
+            
+            if (reader.CurrentBsonType== BsonType.DateTime)
             {
-                return dt.ToLocalTime();
+                var dt = (DateTime)base.Deserialize(context, args);
+
+                if (dt.Kind == DateTimeKind.Utc)
+                {
+                    return dt.ToLocalTime();
+                }
+                else
+                {
+                    return dt;
+                }
+            }
+            else if (reader.CurrentBsonType == BsonType.String)
+            {
+                var str = reader.ReadString();
+
+                return str.ToDateTime();
             }
             else
             {
-                return dt;
+                throw new ArgumentOutOfRangeException("类型无法转为时间");
             }
         }
 

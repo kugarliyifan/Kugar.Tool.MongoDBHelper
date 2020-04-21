@@ -1,0 +1,701 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MongoDB.Integrations.JsonDotNet</name>
+    </assembly>
+    <members>
+        <member name="T:MongoDB.Integrations.JsonDotNet.Converters.BsonArrayConverter">
+            <summary>
+            Represents a JsonConverter for BsonArray values.
+            </summary>
+            <seealso cref="T:MongoDB.Integrations.JsonDotNet.Converters.JsonConverterBase`1" />
+        </member>
+        <member name="P:MongoDB.Integrations.JsonDotNet.Converters.BsonArrayConverter.Instance">
+            <summary>
+            Gets a pre-created instance of a <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonArrayConverter"/>.
+            </summary>
+            <value>
+            A <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonArrayConverter"/>.
+            </value>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonArrayConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonArrayConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MongoDB.Integrations.JsonDotNet.Converters.BsonBinaryDataConverter">
+            <summary>
+            Represents a JsonConverter for BsonBinaryData values.
+            </summary>
+            <seealso cref="T:MongoDB.Integrations.JsonDotNet.Converters.JsonConverterBase`1" />
+        </member>
+        <member name="P:MongoDB.Integrations.JsonDotNet.Converters.BsonBinaryDataConverter.Instance">
+            <summary>
+            Gets a pre-created instance of a <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonBinaryDataConverter"/>.
+            </summary>
+            <value>
+            A <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonBinaryDataConverter"/>.
+            </value>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonBinaryDataConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonBinaryDataConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MongoDB.Integrations.JsonDotNet.Converters.BsonBooleanConverter">
+            <summary>
+            Represents a JsonConverter for BsonBoolean values.
+            </summary>
+            <seealso cref="T:MongoDB.Integrations.JsonDotNet.Converters.JsonConverterBase`1" />
+        </member>
+        <member name="P:MongoDB.Integrations.JsonDotNet.Converters.BsonBooleanConverter.Instance">
+            <summary>
+            Gets a pre-created instance of a <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonBooleanConverter"/>.
+            </summary>
+            <value>
+            A <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonBooleanConverter"/>.
+            </value>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonBooleanConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonBooleanConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MongoDB.Integrations.JsonDotNet.Converters.BsonDateTimeConverter">
+            <summary>
+            Represents a JsonConverter for BsonDateTime values.
+            </summary>
+            <seealso cref="T:MongoDB.Integrations.JsonDotNet.Converters.JsonConverterBase`1" />
+        </member>
+        <member name="P:MongoDB.Integrations.JsonDotNet.Converters.BsonDateTimeConverter.Instance">
+            <summary>
+            Gets a pre-created instance of a <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonDateTimeConverter"/>.
+            </summary>
+            <value>
+            A <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonDateTimeConverter"/>.
+            </value>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonDateTimeConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonDateTimeConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MongoDB.Integrations.JsonDotNet.Converters.BsonDocumentConverter">
+            <summary>
+            Represents a JsonConverter for BsonDocument values.
+            </summary>
+            <seealso cref="T:MongoDB.Integrations.JsonDotNet.Converters.JsonConverterBase`1" />
+        </member>
+        <member name="P:MongoDB.Integrations.JsonDotNet.Converters.BsonDocumentConverter.Instance">
+            <summary>
+            Gets a pre-created instance of a <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonDocumentConverter"/>.
+            </summary>
+            <value>
+            A <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonDocumentConverter"/>.
+            </value>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonDocumentConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonDocumentConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MongoDB.Integrations.JsonDotNet.Converters.BsonDoubleConverter">
+            <summary>
+            Represents a JsonConverter for BsonDouble values.
+            </summary>
+            <seealso cref="T:MongoDB.Integrations.JsonDotNet.Converters.JsonConverterBase`1" />
+        </member>
+        <member name="P:MongoDB.Integrations.JsonDotNet.Converters.BsonDoubleConverter.Instance">
+            <summary>
+            Gets a pre-created instance of a <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonDoubleConverter"/>.
+            </summary>
+            <value>
+            A <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonDoubleConverter"/>.
+            </value>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonDoubleConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonDoubleConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MongoDB.Integrations.JsonDotNet.Converters.BsonInt64Converter">
+            <summary>
+            Represents a JsonConverter for BsonInt64 values.
+            </summary>
+            <seealso cref="T:MongoDB.Integrations.JsonDotNet.Converters.JsonConverterBase`1" />
+        </member>
+        <member name="P:MongoDB.Integrations.JsonDotNet.Converters.BsonInt64Converter.Instance">
+            <summary>
+            Gets a pre-created instance of a <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonInt64Converter"/>.
+            </summary>
+            <value>
+            A <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonInt64Converter"/>.
+            </value>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonInt64Converter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonInt64Converter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MongoDB.Integrations.JsonDotNet.Converters.BsonJavaScriptConverter">
+            <summary>
+            Represents a JsonConverter for BsonJavaScript values.
+            </summary>
+            <seealso cref="T:MongoDB.Integrations.JsonDotNet.Converters.JsonConverterBase`1" />
+        </member>
+        <member name="P:MongoDB.Integrations.JsonDotNet.Converters.BsonJavaScriptConverter.Instance">
+            <summary>
+            Gets a pre-created instance of a <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonJavaScriptConverter"/>.
+            </summary>
+            <value>
+            A <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonJavaScriptConverter"/>.
+            </value>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonJavaScriptConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonJavaScriptConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MongoDB.Integrations.JsonDotNet.Converters.BsonJavaScriptWithScopeConverter">
+            <summary>
+            Represents a JsonConverter for BsonJavaScriptWithScope values.
+            </summary>
+            <seealso cref="T:MongoDB.Integrations.JsonDotNet.Converters.JsonConverterBase`1" />
+        </member>
+        <member name="P:MongoDB.Integrations.JsonDotNet.Converters.BsonJavaScriptWithScopeConverter.Instance">
+            <summary>
+            Gets a pre-created instance of a <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonJavaScriptWithScopeConverter"/>.
+            </summary>
+            <value>
+            A <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonJavaScriptWithScopeConverter"/>.
+            </value>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonJavaScriptWithScopeConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonJavaScriptWithScopeConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MongoDB.Integrations.JsonDotNet.Converters.BsonMinKeyConverter">
+            <summary>
+            Represents a JsonConverter for BsonMinKey values.
+            </summary>
+            <seealso cref="T:MongoDB.Integrations.JsonDotNet.Converters.JsonConverterBase`1" />
+        </member>
+        <member name="P:MongoDB.Integrations.JsonDotNet.Converters.BsonMinKeyConverter.Instance">
+            <summary>
+            Gets a pre-created instance of a <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonMinKeyConverter"/>.
+            </summary>
+            <value>
+            A <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonMinKeyConverter"/>.
+            </value>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonMinKeyConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonMinKeyConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MongoDB.Integrations.JsonDotNet.Converters.BsonNullConverter">
+            <summary>
+            Represents a JsonConverter for BsonNull values.
+            </summary>
+            <seealso cref="T:MongoDB.Integrations.JsonDotNet.Converters.JsonConverterBase`1" />
+        </member>
+        <member name="P:MongoDB.Integrations.JsonDotNet.Converters.BsonNullConverter.Instance">
+            <summary>
+            Gets a pre-created instance of a <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonNullConverter"/>.
+            </summary>
+            <value>
+            A <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonNullConverter"/>.
+            </value>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonNullConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonNullConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MongoDB.Integrations.JsonDotNet.Converters.BsonObjectIdConverter">
+            <summary>
+            Represents a JsonConverter for BsonObjectId values.
+            </summary>
+            <seealso cref="T:MongoDB.Integrations.JsonDotNet.Converters.JsonConverterBase`1" />
+        </member>
+        <member name="P:MongoDB.Integrations.JsonDotNet.Converters.BsonObjectIdConverter.Instance">
+            <summary>
+            Gets a pre-created instance of a <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonObjectIdConverter"/>.
+            </summary>
+            <value>
+            A <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonObjectIdConverter"/>.
+            </value>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonObjectIdConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonObjectIdConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MongoDB.Integrations.JsonDotNet.Converters.BsonRegularExpressionConverter">
+            <summary>
+            Represents a JsonConverter for BsonRegularExpression values.
+            </summary>
+            <seealso cref="T:MongoDB.Integrations.JsonDotNet.Converters.JsonConverterBase`1" />
+        </member>
+        <member name="P:MongoDB.Integrations.JsonDotNet.Converters.BsonRegularExpressionConverter.Instance">
+            <summary>
+            Gets a pre-created instance of a <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonRegularExpressionConverter"/>.
+            </summary>
+            <value>
+            A <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonRegularExpressionConverter"/>.
+            </value>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonRegularExpressionConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonRegularExpressionConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MongoDB.Integrations.JsonDotNet.Converters.BsonStringConverter">
+            <summary>
+            Represents a JsonConverter for BsonString values.
+            </summary>
+            <seealso cref="T:MongoDB.Integrations.JsonDotNet.Converters.JsonConverterBase`1" />
+        </member>
+        <member name="P:MongoDB.Integrations.JsonDotNet.Converters.BsonStringConverter.Instance">
+            <summary>
+            Gets a pre-created instance of a <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonStringConverter"/>.
+            </summary>
+            <value>
+            A <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonArrayConverter"/>.
+            </value>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonStringConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonStringConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MongoDB.Integrations.JsonDotNet.Converters.BsonSymbolConverter">
+            <summary>
+            Represents a JsonConverter for BsonSymbol values.
+            </summary>
+            <seealso cref="T:MongoDB.Integrations.JsonDotNet.Converters.JsonConverterBase`1" />
+        </member>
+        <member name="P:MongoDB.Integrations.JsonDotNet.Converters.BsonSymbolConverter.Instance">
+            <summary>
+            Gets a pre-created instance of a <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonSymbolConverter"/>.
+            </summary>
+            <value>
+            A <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonArrayConverter"/>.
+            </value>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonSymbolConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonSymbolConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MongoDB.Integrations.JsonDotNet.Converters.BsonTimestampConverter">
+            <summary>
+            Represents a JsonConverter for BsonTimestamp values.
+            </summary>
+            <seealso cref="T:MongoDB.Integrations.JsonDotNet.Converters.JsonConverterBase`1" />
+        </member>
+        <member name="P:MongoDB.Integrations.JsonDotNet.Converters.BsonTimestampConverter.Instance">
+            <summary>
+            Gets a pre-created instance of a <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonTimestampConverter"/>.
+            </summary>
+            <value>
+            A <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonArrayConverter"/>.
+            </value>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonTimestampConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonTimestampConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MongoDB.Integrations.JsonDotNet.Converters.BsonUndefinedConverter">
+            <summary>
+            Represents a JsonConverter for BsonUndefined values.
+            </summary>
+            <seealso cref="T:MongoDB.Integrations.JsonDotNet.Converters.JsonConverterBase`1" />
+        </member>
+        <member name="P:MongoDB.Integrations.JsonDotNet.Converters.BsonUndefinedConverter.Instance">
+            <summary>
+            Gets a pre-created instance of a <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonUndefinedConverter"/>.
+            </summary>
+            <value>
+            A <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonUndefinedConverter"/>.
+            </value>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonUndefinedConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonUndefinedConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MongoDB.Integrations.JsonDotNet.Converters.BsonValueConverter">
+            <summary>
+            Represents a JsonConverter for BsonValue values.
+            </summary>
+            <seealso cref="T:MongoDB.Integrations.JsonDotNet.Converters.JsonConverterBase`1" />
+        </member>
+        <member name="P:MongoDB.Integrations.JsonDotNet.Converters.BsonValueConverter.Instance">
+            <summary>
+            Gets a pre-created instance of a <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonValueConverter"/>.
+            </summary>
+            <value>
+            A <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonValueConverter"/>.
+            </value>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonValueConverter.CanConvert(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonValueConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonValueConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MongoDB.Integrations.JsonDotNet.Converters.BsonInt32Converter">
+            <summary>
+            Represents a JsonConverter for BsonInt32 values.
+            </summary>
+            <seealso cref="T:MongoDB.Integrations.JsonDotNet.Converters.JsonConverterBase`1" />
+        </member>
+        <member name="P:MongoDB.Integrations.JsonDotNet.Converters.BsonInt32Converter.Instance">
+            <summary>
+            Gets a pre-created instance of a <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonInt32Converter"/>.
+            </summary>
+            <value>
+            A <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonInt32Converter"/>.
+            </value>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonInt32Converter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonInt32Converter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MongoDB.Integrations.JsonDotNet.Converters.BsonMaxKeyConverter">
+            <summary>
+            Represents a JsonConverter for BsonMaxKey values.
+            </summary>
+            <seealso cref="T:MongoDB.Integrations.JsonDotNet.Converters.JsonConverterBase`1" />
+        </member>
+        <member name="P:MongoDB.Integrations.JsonDotNet.Converters.BsonMaxKeyConverter.Instance">
+            <summary>
+            Gets a pre-created instance of a <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonMaxKeyConverter"/>.
+            </summary>
+            <value>
+            A <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.BsonMaxKeyConverter"/>.
+            </value>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonMaxKeyConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.BsonMaxKeyConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MongoDB.Integrations.JsonDotNet.Converters.JsonConverterBase`1">
+            <summary>
+            Represents a base class for implementations of <see cref="T:Newtonsoft.Json.JsonConverter"/> 
+            </summary>
+            <typeparam name="T"></typeparam>
+            <seealso cref="T:Newtonsoft.Json.JsonConverter" />
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.JsonConverterBase`1.CanConvert(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.JsonConverterBase`1.ReadEndObject(Newtonsoft.Json.JsonReader)">
+            <summary>
+            Reads the end object.
+            </summary>
+            <param name="reader">The reader.</param>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.JsonConverterBase`1.ReadExpectedPropertyName(Newtonsoft.Json.JsonReader,System.String)">
+            <summary>
+            Reads a property name and verifies that it matches the expected property name.
+            </summary>
+            <param name="reader">The reader.</param>
+            <param name="expectedPropertyName">The expected property name.</param>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.JsonConverterBase`1.ReadExpectedToken(Newtonsoft.Json.JsonReader,Newtonsoft.Json.JsonToken)">
+            <summary>
+            Reads a token and verifies that the token type matches the expected token type.
+            </summary>
+            <param name="reader">The reader.</param>
+            <param name="expectedTokenType">The expected token type.</param>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.JsonConverterBase`1.ReadPropertyName(Newtonsoft.Json.JsonReader)">
+            <summary>
+            Reads a property name.
+            </summary>
+            <param name="reader">The reader.</param>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.JsonConverterBase`1.ReadStartObject(Newtonsoft.Json.JsonReader)">
+            <summary>
+            Reads a start object.
+            </summary>
+            <param name="reader">The reader.</param>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.JsonConverterBase`1.ReadStringValue(Newtonsoft.Json.JsonReader)">
+            <summary>
+            Reads a string value.
+            </summary>
+            <param name="reader">The reader.</param>
+            <returns>A string value.</returns>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.JsonConverterBase`1.ReadToken(Newtonsoft.Json.JsonReader)">
+            <summary>
+            Reads a token.
+            </summary>
+            <param name="reader">The reader.</param>
+        </member>
+        <member name="T:MongoDB.Integrations.JsonDotNet.Converters.ObjectIdConverter">
+            <summary>
+            Represents a JsonConverter for ObjectId values.
+            </summary>
+            <seealso cref="T:MongoDB.Integrations.JsonDotNet.Converters.JsonConverterBase`1" />
+        </member>
+        <member name="P:MongoDB.Integrations.JsonDotNet.Converters.ObjectIdConverter.Instance">
+            <summary>
+            Gets a pre-created instance of a <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.ObjectIdConverter"/>.
+            </summary>
+            <value>
+            A <see cref="T:MongoDB.Integrations.JsonDotNet.Converters.ObjectIdConverter"/>.
+            </value>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.ObjectIdConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.Converters.ObjectIdConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MongoDB.Integrations.JsonDotNet.JsonDotNetSerializationProvider">
+            <summary>
+            Represents a serialization provider for Json.NET.
+            </summary>
+            <seealso cref="T:MongoDB.Bson.Serialization.IBsonSerializationProvider" />
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.JsonDotNetSerializationProvider.#ctor(System.Func{System.Type,System.Boolean},Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MongoDB.Integrations.JsonDotNet.JsonDotNetSerializationProvider"/> class.
+            </summary>
+            <param name="predicate">The predicate.</param>
+            <param name="wrappedSerializer">The wrapped serializer.</param>
+        </member>
+        <member name="P:MongoDB.Integrations.JsonDotNet.JsonDotNetSerializationProvider.Predicate">
+            <summary>
+            Gets the predicate.
+            </summary>
+            <value>
+            The predicate.
+            </value>
+        </member>
+        <member name="P:MongoDB.Integrations.JsonDotNet.JsonDotNetSerializationProvider.WrappedSerializer">
+            <summary>
+            Gets the wrapped serializer.
+            </summary>
+            <value>
+            The wrapped serializer.
+            </value>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.JsonDotNetSerializationProvider.GetSerializer(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MongoDB.Integrations.JsonDotNet.JsonSerializerAdapter`1">
+            <summary>
+            Represents an adapter that adapts a Json.NET serializer for use with the MongoDB driver.
+            </summary>
+            <typeparam name="TValue">The type of the value.</typeparam>
+            <seealso cref="T:MongoDB.Bson.Serialization.Serializers.SerializerBase`1" />
+            <seealso cref="T:MongoDB.Bson.Serialization.IBsonArraySerializer" />
+            <seealso cref="T:MongoDB.Bson.Serialization.IBsonDocumentSerializer" />
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.JsonSerializerAdapter`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:MongoDB.Integrations.JsonDotNet.JsonSerializerAdapter`1"/> class.
+            </summary>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.JsonSerializerAdapter`1.#ctor(Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MongoDB.Integrations.JsonDotNet.JsonSerializerAdapter`1"/> class.
+            </summary>
+            <param name="wrappedSerializer">The wrapped serializer.</param>
+            <exception cref="T:System.ArgumentNullException">wrappedSerializer</exception>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.JsonSerializerAdapter`1.Deserialize(MongoDB.Bson.Serialization.BsonDeserializationContext,MongoDB.Bson.Serialization.BsonDeserializationArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.JsonSerializerAdapter`1.Serialize(MongoDB.Bson.Serialization.BsonSerializationContext,MongoDB.Bson.Serialization.BsonSerializationArgs,`0)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.JsonSerializerAdapter`1.TryGetItemSerializationInfo(MongoDB.Bson.Serialization.BsonSerializationInfo@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.JsonSerializerAdapter`1.TryGetMemberSerializationInfo(System.String,MongoDB.Bson.Serialization.BsonSerializationInfo@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonReaderAdapter.Close">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonReaderAdapter.Read">
+            <inheritdoc/>
+        </member>
+        <member name="P:MongoDB.Integrations.JsonDotNet.JsonReaderBase.Depth">
+            <inheritdoc/>
+        </member>
+        <member name="P:MongoDB.Integrations.JsonDotNet.JsonReaderBase.Path">
+            <inheritdoc/>
+        </member>
+        <member name="P:MongoDB.Integrations.JsonDotNet.JsonReaderBase.TokenType">
+            <inheritdoc/>
+        </member>
+        <member name="P:MongoDB.Integrations.JsonDotNet.JsonReaderBase.Value">
+            <inheritdoc/>
+        </member>
+        <member name="P:MongoDB.Integrations.JsonDotNet.JsonReaderBase.ValueType">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.JsonReaderBase.ReadAsBytes">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.JsonReaderBase.ReadAsDateTime">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.JsonReaderBase.ReadAsDateTimeOffset">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.JsonReaderBase.ReadAsDecimal">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.JsonReaderBase.ReadAsInt32">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.JsonReaderBase.ReadAsString">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonWriterAdapter.Close">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonWriterAdapter.Flush">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonWriterAdapter.WriteEnd(Newtonsoft.Json.JsonToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonWriterAdapter.WriteEndArray">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonWriterAdapter.WriteEndConstructor">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonWriterAdapter.WriteEndObject">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonWriterAdapter.WriteIndent">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonWriterAdapter.WriteIndentSpace">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonWriterAdapter.WriteNull">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonWriterAdapter.WritePropertyName(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonWriterAdapter.WriteRaw(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonWriterAdapter.WriteRawValue(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonWriterAdapter.WriteStartArray">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonWriterAdapter.WriteStartConstructor(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonWriterAdapter.WriteStartObject">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonWriterAdapter.WriteUndefined">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonWriterAdapter.WriteValue(System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonWriterAdapter.WriteValue(System.Byte)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonWriterAdapter.WriteValue(System.Byte[])">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonWriterAdapter.WriteValue(System.Char)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonWriterAdapter.WriteValue(System.DateTime)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonWriterAdapter.WriteValue(System.DateTimeOffset)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonWriterAdapter.WriteValue(System.Decimal)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonWriterAdapter.WriteValue(System.Double)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonWriterAdapter.WriteValue(System.Single)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonWriterAdapter.WriteValue(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonWriterAdapter.WriteValue(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonWriterAdapter.WriteValue(System.Int64)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonWriterAdapter.WriteValue(System.SByte)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonWriterAdapter.WriteValue(System.Int16)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonWriterAdapter.WriteValue(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonWriterAdapter.WriteValue(System.TimeSpan)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonWriterAdapter.WriteValue(System.UInt32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonWriterAdapter.WriteValue(System.UInt64)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonWriterAdapter.WriteValue(System.Uri)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonWriterAdapter.WriteValue(System.UInt16)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MongoDB.Integrations.JsonDotNet.BsonWriterAdapter.WriteWhitespace(System.String)">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

@@ -100,7 +100,7 @@ namespace Kugar.Tool.MongoDBHelper
                                 [item.Name] = item.Value
                             });
                         }
-                        else if (!item.Name.StartsWith('$'))
+                        else if (!item.Name.StartsWith("$"))
                         {
                             if (item.Value is BsonDocument b)
                             {
@@ -176,7 +176,7 @@ namespace Kugar.Tool.MongoDBHelper
                                 [item.Name] = item.Value
                             });
                         }
-                        else if (!item.Name.StartsWith('$'))
+                        else if (!item.Name.StartsWith("$"))
                         {
                             if (item.Value.IsBsonDocument)
                             {
@@ -525,7 +525,7 @@ namespace Kugar.Tool.MongoDBHelper
             {
                 ["$replaceRoot"] = new BsonDocument()
                 {
-                    ["newRoot"] = newRootFieldName.StartsWith('$') ? newRootFieldName : "$" + newRootFieldName
+                    ["newRoot"] = newRootFieldName.StartsWith("$") ? newRootFieldName : "$" + newRootFieldName
                 }
             });
 

@@ -704,7 +704,7 @@ namespace Kugar.Tool.MongoDBHelper
                 _collection.InsertOne(document);
 
                 //var result = _oldCollection.Value.Insert(document, concern);
-
+                
                 return SuccessResultReturn.Default;
             }
             catch (Exception ex)

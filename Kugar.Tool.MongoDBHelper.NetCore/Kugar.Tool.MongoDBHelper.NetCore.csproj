@@ -1,18 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp2.1;netcoreapp3.0</TargetFrameworks>
+    <TargetFrameworks>netcoreapp2.1;netcoreapp3.0;</TargetFrameworks>
     <RootNamespace>Kugar.Tool.MongoDBHelper</RootNamespace>
     <Authors>Kugar</Authors>
     <Product>Kugar.Tool.MongoDBHelper.NetCore</Product>
-    <Version>2.1.85</Version>
+    <Version>2.1.93</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <TieredCompilation>true</TieredCompilation>
     <LangVersion>latest</LangVersion>
-    <PackageReleaseNotes>1.增加了 AggregateBuilder.Match 在lookup的pipelines中转为expr的支持
-2.拆分 IMongoDBCollectionHelper 为 IMongoDBCollectionAsyncHelper 和 IMongoDBCollectionHelper
-3.增加 AggregateWithPagedAsync 以及 AggregateAsWithPagedAsync 函数,用于方便聚合后直接分页
-</PackageReleaseNotes>
+    <PackageReleaseNotes>1.新增了DateTimeNullableSerializer和修改了DateTimeSerializerEx,.用于适应传入的时间是字符串类型
+2.优化时间的转换部分</PackageReleaseNotes>
     <Description>对mongodb官方的驱动进行二次封装的类库</Description>
   </PropertyGroup>
 
@@ -70,7 +68,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Kugar.Core.NetCore" Version="1.2.78" />
+    <PackageReference Include="Kugar.Core.NetCore" Version="1.2.100" />
   </ItemGroup>
 
 </Project>

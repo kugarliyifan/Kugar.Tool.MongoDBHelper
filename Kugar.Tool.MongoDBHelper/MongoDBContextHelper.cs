@@ -35,6 +35,9 @@ namespace Kugar.Tool.MongoDBHelper
 
         static MongoDBContextHelper()
         {
+
+            BsonSerializer.RegisterSerializer(typeof(DateTime?),new DateTimeNullableSerializer());
+
             BsonSerializer.RegisterSerializer(
                 typeof(DateTime),
                 new DateTimeSerializerEx());
@@ -48,7 +51,7 @@ namespace Kugar.Tool.MongoDBHelper
 
             //try
             //{
-            //    BsonSerializer.RegisterSerializer(typeof(decimal),new MongoDB_DecimalSerializer(this));
+            //    BsonSerializer.RegisterSerializer(typeof(decimal), new MongoDB_DecimalSerializer());
             //}
             //catch (Exception e)
             //{

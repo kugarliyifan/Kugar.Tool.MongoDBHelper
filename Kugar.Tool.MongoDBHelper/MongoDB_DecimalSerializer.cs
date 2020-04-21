@@ -13,14 +13,14 @@ namespace Kugar.Tool.MongoDBHelper
 {
     public class MongoDB_DecimalSerializer: SerializerBase<decimal>
     {
-        private IMongoDBContext _context = null;
-        private bool _isGreaterThan34 = false;
+        //private IMongoDBContext _context = null;
+        private bool _isGreaterThan34 = true;
 
-        public MongoDB_DecimalSerializer(IMongoDBContext context)
+        public MongoDB_DecimalSerializer(/*IMongoDBContext context*/)
         {
-            _context = context;
+            //_context = context;
 
-            _isGreaterThan34 = _context.ServerVersion.Major >= 3 && _context.ServerVersion.Major >= 4;
+            //_isGreaterThan34 = _context.ServerVersion.Major >= 3 && _context.ServerVersion.Major >= 4;
         }
 
         public override decimal Deserialize(BsonDeserializationContext context, BsonDeserializationArgs args)
@@ -32,6 +32,22 @@ namespace Kugar.Tool.MongoDBHelper
             if (reader.CurrentBsonType == BsonType.Decimal128)
             {
                 return (decimal)reader.ReadDecimal128();
+            }
+            else if (reader.CurrentBsonType == BsonType.String)
+            {
+                return reader.ReadString().ToDecimal();
+            }
+            else if (reader.CurrentBsonType == BsonType.Double)
+            {
+                return (decimal) reader.ReadDouble();
+            }
+            else if (reader.CurrentBsonType == BsonType.Int32)
+            {
+                return (decimal) reader.ReadInt32();
+            }
+            else if (reader.CurrentBsonType == BsonType.Int64)
+            {
+                return (decimal) reader.ReadInt64();
             }
             else
             {
