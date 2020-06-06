@@ -1,81 +1,70 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0FCA2627-7B78-4A31-9DB2-4F63EC084778}</ProjectGuid>
-    <OutputType>Library</OutputType>
-	<Version>2.1.93</Version>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Kugar.Tool.MongoDBHelper</RootNamespace>
-    <AssemblyName>Kugar.Tool.MongoDBHelper</AssemblyName>
-    <TargetFramework>net45</TargetFramework>
-    <FileAlignment>512</FileAlignment>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Kugar.Tool.MongoDBHelper.XML</DocumentationFile>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  
-  <ItemGroup>
-  
-  <PackageReference Include="Kugar.Core" Version="1.2.69" />
-  
-  <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.0" />
-  
-  <PackageReference Include="Microsoft.AspNet.WebApi" Version="5.2.0" />
-  
-  <PackageReference Include="mongocsharpdriver" Version="2.4.2" />
-  <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
-  <!--<Reference Include="MongoDB.Integrations.JsonDotNet">
-      <HintPath>..\..\Dlls\MongoDB.Integrations.JsonDotNet.dll</HintPath>
-    </Reference>-->
+	<PropertyGroup>
+		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+		<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+		<ProjectGuid>{0FCA2627-7B78-4A31-9DB2-4F63EC084778}</ProjectGuid>
+		<OutputType>Library</OutputType>
+		<Version>2.1.93</Version>
+		<AppDesignerFolder>Properties</AppDesignerFolder>
+		<RootNamespace>Kugar.Tool.MongoDBHelper</RootNamespace>
+		<AssemblyName>Kugar.Tool.MongoDBHelper</AssemblyName>
+		<TargetFramework>net45</TargetFramework>
+		<FileAlignment>512</FileAlignment>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>full</DebugType>
+		<Optimize>false</Optimize>
+		<OutputPath>bin\</OutputPath>
+		<DefineConstants>DEBUG;TRACE</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+		<DocumentationFile>bin\Kugar.Tool.MongoDBHelper.XML</DocumentationFile>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<DebugType>pdbonly</DebugType>
+		<Optimize>true</Optimize>
+		<OutputPath>bin\Release\</OutputPath>
+		<DefineConstants>TRACE</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+	</PropertyGroup>
+
+	<ItemGroup>
+
+		<PackageReference Include="Kugar.Core" Version="1.2.69" />
+
+		<PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.0" />
+
+		<PackageReference Include="Microsoft.AspNet.WebApi" Version="5.2.0" />
+
+		<PackageReference Include="mongocsharpdriver" Version="2.4.2" />
+		<PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+		<Reference Include="MongoDB.Integrations.JsonDotNet">
+			<HintPath>..\Dlls\MongoDB.Integrations.JsonDotNet.dll</HintPath>
+		</Reference>
+		<Reference Include="System.ComponentModel.DataAnnotations" />
 	</ItemGroup>
-  
-  <!--<ItemGroup>
-	<Compile Include="**\*.cs" />
-	<EmbeddedResource Include="**\*.resx" />
-  
-  </ItemGroup>-->
-  
-  <ItemGroup>
-    <Compile Remove="obj\**" />
-    <EmbeddedResource Remove="obj\**" />
-    <None Remove="obj\**" />
-  </ItemGroup>
-  
-  <ItemGroup>
-    <Compile Remove="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  
-  <ItemGroup>
-    <Compile Include="..\Kugar.Tool.MongoDBHelper.NetCore\IMongoDBCollectionAsyncHelper.cs" Link="IMongoDBCollectionAsyncHelper.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="MongoDB.Integrations.JsonDotNet">
-      <HintPath>..\Dlls\MongoDB.Integrations.JsonDotNet.dll</HintPath>
-    </Reference>
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
+
+	<ItemGroup>
+		<Compile Remove="obj\**" />
+		<EmbeddedResource Remove="obj\**" />
+		<None Remove="obj\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Remove="Properties\AssemblyInfo.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Include="..\Kugar.Tool.MongoDBHelper.NetCore\IMongoDBCollectionAsyncHelper.cs" Link="IMongoDBCollectionAsyncHelper.cs" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="app.config" />
+		<None Include="packages.config" />
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="Properties\" />
+	</ItemGroup>
 </Project>

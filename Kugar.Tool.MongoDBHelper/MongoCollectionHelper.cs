@@ -1234,7 +1234,13 @@ namespace Kugar.Tool.MongoDBHelper
 
             var countRet = await this.AggregateAsync(builder.Copy().Count("Count"), options).ConfigureAwait(false);
 
-            var count = countRet.ReturnData.FirstOrDefault()?.GetInt32("Count") ?? 0;
+            if (!countRet.IsSuccess)
+            {
+                throw new Exception(countRet.Message,countRet.Error);
+            }
+
+
+            var count = countRet.ReturnData?.FirstOrDefault()?.GetInt32("Count") ?? 0;
 
             if (count <= 0)
             {

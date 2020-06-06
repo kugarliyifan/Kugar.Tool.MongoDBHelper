@@ -1,74 +1,73 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFrameworks>netcoreapp2.1;netcoreapp3.0;</TargetFrameworks>
-    <RootNamespace>Kugar.Tool.MongoDBHelper</RootNamespace>
-    <Authors>Kugar</Authors>
-    <Product>Kugar.Tool.MongoDBHelper.NetCore</Product>
-    <Version>2.1.93</Version>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <TieredCompilation>true</TieredCompilation>
-    <LangVersion>latest</LangVersion>
-    <PackageReleaseNotes>1.新增了DateTimeNullableSerializer和修改了DateTimeSerializerEx,.用于适应传入的时间是字符串类型
-2.优化时间的转换部分</PackageReleaseNotes>
-    <Description>对mongodb官方的驱动进行二次封装的类库</Description>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFrameworks>netcoreapp2.1;netcoreapp3.0;netcoreapp3.1</TargetFrameworks>
+		<RootNamespace>Kugar.Tool.MongoDBHelper</RootNamespace>
+		<Authors>Kugar</Authors>
+		<Product>Kugar.Tool.MongoDBHelper.NetCore</Product>
+		<Version>2.1.96</Version>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<TieredCompilation>true</TieredCompilation>
+		<LangVersion>latest</LangVersion>
+		<PackageReleaseNotes>1.分离出Kugar.Tool.MongoDBHelper.AspNetCore项目
+2.修复AggregateAsWithPagedAsync函数的错误</PackageReleaseNotes>
+		<Description>对mongodb官方的驱动进行二次封装的类库</Description>
+	</PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>bin\</OutputPath>
-    <DocumentationFile>bin\Kugar.Tool.MongoDBHelper.NetCore.xml</DocumentationFile>
-  </PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<OutputPath>bin\</OutputPath>
+		<DocumentationFile>bin\Kugar.Tool.MongoDBHelper.NetCore.xml</DocumentationFile>
+	</PropertyGroup>
 
+	<ItemGroup>
+		<Compile Include="..\Kugar.Tool.MongoDBHelper\AggregateBuilder.cs" Link="AggregateBuilder.cs" />
+		<Compile Include="..\Kugar.Tool.MongoDBHelper\BsonDocumentJsonConverter.cs" Link="BsonDocumentJsonConverter.cs" />
+		<Compile Include="..\Kugar.Tool.MongoDBHelper\BulkWriteBuilder.cs" Link="BulkWriteBuilder.cs" />
+		<Compile Include="..\Kugar.Tool.MongoDBHelper\DateTimeSerializerEx.cs" Link="DateTimeSerializerEx.cs" />
+		<Compile Include="..\Kugar.Tool.MongoDBHelper\Digit.cs" Link="Digit.cs" />
+		<Compile Include="..\Kugar.Tool.MongoDBHelper\IMongoDBClientCollectionExecutor.cs" Link="IMongoDBClientCollectionExecutor.cs" />
+		<Compile Include="..\Kugar.Tool.MongoDBHelper\IMongoDBCollectionHelper.cs" Link="IMongoDBCollectionHelper.cs" />
+		<Compile Include="..\Kugar.Tool.MongoDBHelper\IMongoDBContext.cs" Link="IMongoDBContext.cs" />
+		<Compile Include="..\Kugar.Tool.MongoDBHelper\MongoBuilderEx.cs" Link="MongoBuilderEx.cs" />
+		<Compile Include="..\Kugar.Tool.MongoDBHelper\MongoCollectionHelper.cs" Link="MongoCollectionHelper.cs" />
+		<Compile Include="..\Kugar.Tool.MongoDBHelper\MongoDBContextHelper.cs" Link="MongoDBContextHelper.cs" />
+		<Compile Include="..\Kugar.Tool.MongoDBHelper\MongoDBExtMethod.cs" Link="MongoDBExtMethod.cs" />
+		<Compile Include="..\Kugar.Tool.MongoDBHelper\MongoDB_DecimalSerializer.cs" Link="MongoDB_DecimalSerializer.cs" />
+		<Compile Include="..\Kugar.Tool.MongoDBHelper\MongoDB_DigitSerializer.cs" Link="MongoDB_DigitSerializer.cs" />
+		<Compile Include="..\Kugar.Tool.MongoDBHelper\MongoQueryEx.cs" Link="MongoQueryEx.cs" />
+		<Compile Include="..\Kugar.Tool.MongoDBHelper\ObjectIDJsonConverter.cs" Link="ObjectIDJsonConverter.cs" />
+		<Compile Include="..\Kugar.Tool.MongoDBHelper\Serializers\BulkWriteResultJsonConverter.cs" Link="Serializers\BulkWriteResultJsonConverter.cs" />
+		<Compile Include="..\Kugar.Tool.MongoDBHelper\Serializers\FieldDefinitionJsonConverter.cs" Link="Serializers\FieldDefinitionJsonConverter.cs" />
+		<Compile Include="..\Kugar.Tool.MongoDBHelper\Serializers\FilterDefinitionJsonConverter.cs" Link="Serializers\FilterDefinitionJsonConverter.cs" />
+		<Compile Include="..\Kugar.Tool.MongoDBHelper\Serializers\JsonConverterBase.cs" Link="Serializers\JsonConverterBase.cs" />
+		<Compile Include="..\Kugar.Tool.MongoDBHelper\Serializers\JsonRegister.cs" Link="Serializers\JsonRegister.cs" />
+		<Compile Include="..\Kugar.Tool.MongoDBHelper\Serializers\ObjectIdToJObjectConverter.cs" Link="Serializers\ObjectIdToJObjectConverter.cs" />
+		<Compile Include="..\Kugar.Tool.MongoDBHelper\Serializers\ProjectionDefinitionJsonConverter.cs" Link="Serializers\ProjectionDefinitionJsonConverter.cs" />
+		<Compile Include="..\Kugar.Tool.MongoDBHelper\Serializers\SortDefinitionJsonConverter.cs" Link="Serializers\SortDefinitionJsonConverter.cs" />
+		<Compile Include="..\Kugar.Tool.MongoDBHelper\Serializers\UpdateDefinitionJsonConverter.cs" Link="Serializers\UpdateDefinitionJsonConverter.cs" />
+		<Compile Include="..\Kugar.Tool.MongoDBHelper\Serializers\WriteModelJsonConverter.cs" Link="Serializers\WriteModelJsonConverter.cs" />
+	</ItemGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.0' ">
-    <FrameworkReference Include="Microsoft.AspNetCore.App" />
-  </ItemGroup>
+	<ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp2.1' ">
+		<PackageReference Include="mongocsharpdriver" Version="2.10.4" />
+		<PackageReference Include="MongoDB.Driver.GridFS" Version="2.10.4" />
+		<PackageReference Include="MongoDB.Integrations.JsonDotNet" Version="1.2.0" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Compile Include="..\Kugar.Tool.MongoDBHelper\AggregateBuilder.cs" Link="AggregateBuilder.cs" />
-    <Compile Include="..\Kugar.Tool.MongoDBHelper\BsonDocumentJsonConverter.cs" Link="BsonDocumentJsonConverter.cs" />
-    <Compile Include="..\Kugar.Tool.MongoDBHelper\BulkWriteBuilder.cs" Link="BulkWriteBuilder.cs" />
-    <Compile Include="..\Kugar.Tool.MongoDBHelper\DateTimeSerializerEx.cs" Link="DateTimeSerializerEx.cs" />
-    <Compile Include="..\Kugar.Tool.MongoDBHelper\Digit.cs" Link="Digit.cs" />
-    <Compile Include="..\Kugar.Tool.MongoDBHelper\IMongoDBClientCollectionExecutor.cs" Link="IMongoDBClientCollectionExecutor.cs" />
-    <Compile Include="..\Kugar.Tool.MongoDBHelper\IMongoDBCollectionHelper.cs" Link="IMongoDBCollectionHelper.cs" />
-    <Compile Include="..\Kugar.Tool.MongoDBHelper\IMongoDBContext.cs" Link="IMongoDBContext.cs" />
-    <Compile Include="..\Kugar.Tool.MongoDBHelper\MongoBuilderEx.cs" Link="MongoBuilderEx.cs" />
-    <Compile Include="..\Kugar.Tool.MongoDBHelper\MongoCollectionHelper.cs" Link="MongoCollectionHelper.cs" />
-    <Compile Include="..\Kugar.Tool.MongoDBHelper\MongoDBContextHelper.cs" Link="MongoDBContextHelper.cs" />
-    <Compile Include="..\Kugar.Tool.MongoDBHelper\MongoDBExtMethod.cs" Link="MongoDBExtMethod.cs" />
-    <Compile Include="..\Kugar.Tool.MongoDBHelper\MongoDB_DecimalSerializer.cs" Link="MongoDB_DecimalSerializer.cs" />
-    <Compile Include="..\Kugar.Tool.MongoDBHelper\MongoDB_DigitSerializer.cs" Link="MongoDB_DigitSerializer.cs" />
-    <Compile Include="..\Kugar.Tool.MongoDBHelper\MongoQueryEx.cs" Link="MongoQueryEx.cs" />
-    <Compile Include="..\Kugar.Tool.MongoDBHelper\ObjectIDJsonConverter.cs" Link="ObjectIDJsonConverter.cs" />
-    <Compile Include="..\Kugar.Tool.MongoDBHelper\Serializers\BulkWriteResultJsonConverter.cs" Link="Serializers\BulkWriteResultJsonConverter.cs" />
-    <Compile Include="..\Kugar.Tool.MongoDBHelper\Serializers\FieldDefinitionJsonConverter.cs" Link="Serializers\FieldDefinitionJsonConverter.cs" />
-    <Compile Include="..\Kugar.Tool.MongoDBHelper\Serializers\FilterDefinitionJsonConverter.cs" Link="Serializers\FilterDefinitionJsonConverter.cs" />
-    <Compile Include="..\Kugar.Tool.MongoDBHelper\Serializers\JsonConverterBase.cs" Link="Serializers\JsonConverterBase.cs" />
-    <Compile Include="..\Kugar.Tool.MongoDBHelper\Serializers\JsonRegister.cs" Link="Serializers\JsonRegister.cs" />
-    <Compile Include="..\Kugar.Tool.MongoDBHelper\Serializers\ObjectIdToJObjectConverter.cs" Link="Serializers\ObjectIdToJObjectConverter.cs" />
-    <Compile Include="..\Kugar.Tool.MongoDBHelper\Serializers\ProjectionDefinitionJsonConverter.cs" Link="Serializers\ProjectionDefinitionJsonConverter.cs" />
-    <Compile Include="..\Kugar.Tool.MongoDBHelper\Serializers\SortDefinitionJsonConverter.cs" Link="Serializers\SortDefinitionJsonConverter.cs" />
-    <Compile Include="..\Kugar.Tool.MongoDBHelper\Serializers\UpdateDefinitionJsonConverter.cs" Link="Serializers\UpdateDefinitionJsonConverter.cs" />
-    <Compile Include="..\Kugar.Tool.MongoDBHelper\Serializers\WriteModelJsonConverter.cs" Link="Serializers\WriteModelJsonConverter.cs" />
-  </ItemGroup>
+	<ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.0' ">
+		<PackageReference Include="mongocsharpdriver" Version="2.8.1" />
+		<PackageReference Include="MongoDB.Driver.GridFS" Version="2.5.1" />
+		<PackageReference Include="MongoDB.Integrations.JsonDotNet" Version="1.2.0" />
+	</ItemGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp2.1' ">
-    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.0.3" />
-    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="2.0.3" />
-    <PackageReference Include="mongocsharpdriver" Version="2.8.1" />
-    <PackageReference Include="MongoDB.Driver.GridFS" Version="2.5.1" />
-    <PackageReference Include="MongoDB.Integrations.JsonDotNet" Version="1.2.0" />
-  </ItemGroup>
+	<ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1' ">
+		<PackageReference Include="mongocsharpdriver" Version="2.10.4" />
+		<PackageReference Include="MongoDB.Driver.GridFS" Version="2.10.4" />
+		<PackageReference Include="MongoDB.Integrations.JsonDotNet" Version="1.2.0" />
+	</ItemGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.0' ">
-    <PackageReference Include="mongocsharpdriver" Version="2.8.1" />
-    <PackageReference Include="MongoDB.Driver.GridFS" Version="2.5.1" />
-    <PackageReference Include="MongoDB.Integrations.JsonDotNet" Version="1.2.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Kugar.Core.NetCore" Version="1.2.100" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Kugar.Core.NetCore" Version="1.2.111" />
+	</ItemGroup>
 
 </Project>
