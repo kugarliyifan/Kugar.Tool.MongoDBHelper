@@ -11,6 +11,7 @@
 		<AssemblyName>Kugar.Tool.MongoDBHelper</AssemblyName>
 		<TargetFramework>net45</TargetFramework>
 		<FileAlignment>512</FileAlignment>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
 		<DebugSymbols>true</DebugSymbols>

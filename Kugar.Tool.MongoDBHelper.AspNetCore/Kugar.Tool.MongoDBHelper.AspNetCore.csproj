@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	  <TargetFrameworks>netcoreapp2.1;netcoreapp3.0;netcoreapp3.1;</TargetFrameworks>
+	  <TargetFrameworks>netcoreapp3.0;netcoreapp3.1;</TargetFrameworks>
 	  <Authors>Kugar</Authors>
 	  <Description>将原类库Kugar.Tool.MongoDBHelper.NetCore中的与asp.net core有关的部分单独分离出这个类库,让Kugar.Tool.MongoDBHelper.NetCore相对干净</Description>
 	  <PackageProjectUrl>https://github.com/kugarliyifan/Kugar.Tool.MongoDBHelper.git</PackageProjectUrl>
@@ -9,7 +9,8 @@
 	  <RepositoryType>GITHUB</RepositoryType>
 	  <PackageReleaseNotes>1.分离了Requst的扩展函数
 2.增加ObjectIdModelBinder,用于Action的参数列表中,用于绑定参数值的</PackageReleaseNotes>
-	  <Version>2.1.96</Version>
+	  <Version>2.1.97</Version>
+	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
 	<ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.0' ">

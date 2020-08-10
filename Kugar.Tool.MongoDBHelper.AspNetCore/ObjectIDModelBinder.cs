@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
-using MongoDB.Bson;
 
 namespace Kugar.Tool.MongoDBHelper.AspNetCore
 {
+#if NETCOREAPP3_0 || NETCOREAPP3_1
+
+    using Microsoft.AspNetCore.Mvc.ModelBinding;
+    using MongoDB.Bson;
+
+
     public class ObjectIDModelBinder : IModelBinder
     {
         public async Task BindModelAsync(ModelBindingContext bindingContext)
@@ -68,4 +72,6 @@ namespace Kugar.Tool.MongoDBHelper.AspNetCore
 
         }
     }
+
+#endif
 }

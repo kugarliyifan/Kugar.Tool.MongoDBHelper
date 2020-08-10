@@ -5,7 +5,7 @@
 		<RootNamespace>Kugar.Tool.MongoDBHelper</RootNamespace>
 		<Authors>Kugar</Authors>
 		<Product>Kugar.Tool.MongoDBHelper.NetCore</Product>
-		<Version>2.1.96</Version>
+		<Version>2.1.97</Version>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<TieredCompilation>true</TieredCompilation>
 		<LangVersion>latest</LangVersion>
